@@ -1,15 +1,30 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Functions to create inverse matrix using mean caching
 
-## Write a short comment describing this function
+## makeCacheMatrix will create cacheable matrix to be used
+## in cacheSolve() function which sets and gets cached values
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  if(!is.matrix(x)){
+    stop("please provide a matrix")
+  }
+  
+  inverted_matrix <- NULL
+  set <- function(y){
+    x <<- y
+    inverted_matrix <<- NULL
+  }
+  
+  get <- function() x
+  
+  set_inverse <- function(solve) inverted_matrix <<- solve
+  get_inverse <- function() inverted_matrix
 }
 
 
-## Write a short comment describing this function
+## cacheSolve() will compute the inverse of the cacheable matrix
+## If the inverse has already been calculated and there is no
+## change in the matrix then it returns the cached inverse
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+
 }
